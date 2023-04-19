@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-5" style="background-image: url(../static/images/covid.jpg);background-size: cover; height: 150px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-light text-center fw-bold">My Profile</h1>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="container p-5 text-center">
+        <h4><i class="icofont-user icofont-3x"></i></h4>
+
+
+        <h5 class="text-center">Name: {{myprofile.name}}</h5>
+        <h5 class="text-center">Email Id: {{myprofile.email}}</h5>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

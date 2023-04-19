@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container-fluid p-5" style="background-image: url(../static/images/covid.jpg); background-size: cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-light text-center fw-bold">Register Form</h1>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container-fluid p-5">
+    <div class="container">
+      <div class="row">
+  
+        <h5 style="font-weight: bold;color: blue;">GET IN TOUCH</h5>
+        <h1 style="font-weight: bold;" class="p-3">Contact With Us</h1>
+  
+        <div class="col-7 p-3" style="border-top: 5px solid skyblue;border-radius: 10px;">
+        <h4 class="text-center mb-5 p-3" style="color: hotpink;">Send us a message, We will be touch<br>with you shortly.</h4>
+  
+        <form method="POST">
+          <div class="row">
+            {% csrf_token %}
+  
+            <div class="col-12">
+  
+            <label>Name</label>
+            <input type="text" name="username" placeholder="Enter your Fullname" class="form-control mb-4">
+  
+            <label>Email</label>
+            <input type="email" name="user_email" placeholder="Entert Valid Number" class="form-control mb-4">
+            
+            <label>Password</label>
+			<input type="password" required name="user_password" class="form-control mb-4">
+
+			<label> Confirm Password</label>
+			<input type="password" required name="cpassword" class="form-control mb-4">
+
+
+            </div>
+  
+             
+          </div>
+  
+          <div class="text-center">
+                  <button type="submit" class="btn text-light p-3 ps-4 pe-4" style="background-color: hotpink;border-radius: 15px;">SUBMIT</button><br><br>
+                  <a href="{% url 'login' %}" class="text-dark" style="text-decoration: none;">Already have an account?</a>
+                         
+          </div>
+  
+        </form>
+  
+        </div>
+  
+        <div class="col-5">
+          <img src="../static/images/home-1.png" width="80%">
+        </div>
+  
+      </div>
+      
+    </div>
+    
+  </div>
+
+{% if response == 1 %}
+<script>
+  alert('Password does not match')
+</script>
+
+{% elif response == 2 %}
+<script>
+  alert('Email id already exists')
+</script>
+
+{% elif response == 3 %}
+<script>
+  alert('successfully registered')
+</script>
+
+{% endif %}
+{% endblock %}

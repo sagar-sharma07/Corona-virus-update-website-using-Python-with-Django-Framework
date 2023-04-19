@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'icofont/icofont.min.css' %}">
+  <style type="text/css">
+    .Main h3{
+      font-weight: bold;
+    }
+    .Links a{
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      
+    }
+    .Logo i{
+      color: hotpink;
+    }
+    .navbar .navbar-nav .nav-link{
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-5" href="#"><img src="{% static 'images/logo.png' %}" width="150px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'prevention' %}">Prevention</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'doctors' %}">Doctors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'faq' %}">Faq's</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'blog' %}">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active me-3" aria-current="page" href="{% url 'contact' %}">Contact</a>
+        </li>  
+      </ul>
+      
+      <ul class="navbar-nav ms mb-2 mb-lg-0">
+
+        {% if request.session.userid %}
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'changepassword' %}">Change Password</a></li>
+            
+          </ul>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link active"  aria-current="page" href="{% url 'myprofile' %}"><i class="icofont-user"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"><i class="icofont-logout"></i></a>
+        </li>
+
+        {% else %}
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+        </li>
+
+        {% endif %}
+
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+
+{% block content %}
+
+<!--Page content-->>
+
+
+{% endblock %}
+
+
+<div class="container-fluid p-5 bg-dark text-light">
+    <div class="container">
+      <div class="row Main">
+        <div class="col-3">
+          <h3 class="mb-4"><img src="{% static 'images/logowhite.png' %}" width="200px"></h3>
+          <p>A novel coronavirus is a new coronavirus that has not been previously identified. The virus causing coronavirus disease 2019 (COVID-19)</p>
+        </div>
+  
+        <div class="col-3 Links">
+          <h2 class="mb-4">Usefull links</h2>
+          <div class="row">
+            <div class="col-12">
+  
+              <a href="{% url 'situation' %}">Situation Reports</a><br><br>
+              <a href="{% url 'advice' %}">Advice For Public</a><br><br>
+              <a href="{% url 'prevention' %}">Preventions</a><br><br>
+              <a href="{% url 'symptoms' %}">Coronavirus Symptoms</a><br><br>
+              <a href="{% url 'donars' %}">Donars & Partners</a><br><br>
+              
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="col-3 Logo">
+          <h3 class="mb-4">Contact us</h3>
+  
+          <h5><i class="icofont-location-pin"></i> 124,Queens walk 2nd cross newyork 5241.</h5><br>
+          <h5><i class="icofont-phone"></i> +44 555 67 890</h5><br>
+          <h5><i class="icofont-clock-time"></i> Mon - Fri: 09.00 to 18.00</h5><br>
+          <h5><i class="icofont-email"></i> support@gmail.com</h5><br>
+        </div>
+          
+        <div class="col-3">
+          <h3 class="mb-4">Newsletter</h3>
+  
+          <p>Subscribe Us & Recive Our Offers and Updates i Your Inbox Directly.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  
+  </body>
+  </html>

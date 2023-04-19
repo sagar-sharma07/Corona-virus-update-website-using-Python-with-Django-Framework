@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  
+
+
+<div class="container-fluid p-5" style="background-image: url(../static/images/covid.jpg); background-size: cover;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-light text-center fw-bold">Contact</h1>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<h5 style="font-weight: bold;color: blue;" class="text-center p-3">GET IN TOUCH</h5><br>
+<h1 style="font-weight: bold;" class="text-center">We're Here To Help You Contact Us</h1><br>
+
+<div class="container-fluid p-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h3 class="fw-bold"><i class="icofont-location-pin icofont-2x" style="color: hotpink;"></i> Location</h3>
+        <h5 style="color: grey;">visit to explore the world</h5><br>
+        <p style="font-size: 20px;">124, Queens walk 2nd cross newyork 5241.</p>
+      </div>
+
+      <div class="col-4">
+        <h3 class="fw-bold"><i class="icofont-phone icofont-2x" style="color: hotpink;"></i> Make a Call</h3>
+        <h5 style="color: grey;">Lets's talk with our experts</h5><br>
+        <p style="font-size: 20px;">+44 555 67 890<br> Mon-Fri: 09:00Am to 18:00PM</p>
+      </div>
+
+      <div class="col-4">
+        <h3 class="fw-bold"><i class="icofont-email icofont-2x" style="color: hotpink;"></i> Send a Mail</h3>
+        <h5 style="color: grey;">Don't hesitate to mail</h5><br>
+        <p style="font-size: 20px;">career@example.cm<br>info@example.com</p>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+<div class="container-fluid p-5">
+  <div class="container">
+    <div class="row">
+
+      <h5 style="font-weight: bold;color: blue;">GET IN TOUCH</h5>
+      <h1 style="font-weight: bold;" class="p-3">Contact With Us</h1>
+
+      <div class="col-7 p-3" style="border-top: 5px solid skyblue;border-radius: 10px;">
+      <h4 class="text-center mb-5 p-3" style="color: hotpink;">Send us a message, We will be touch<br>with you shortly.</h4>
+
+      <form method="POST">
+        <div class="row">
+          {% csrf_token %}
+
+          <div class="col-6">
+
+          <label>Name</label>
+          <input type="text" name="username" placeholder="Enter your Fullname" class="form-control mb-4">
+
+          <label>Phone</label>
+          <input type="tel" pattern=[0-9]{10} name="phonenumber" placeholder="Entert Valid Number" class="form-control mb-4">
+
+          </div>
+
+          <div class="col-6">
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter Valid Email" name="user_email" class="form-control mb-4">
+
+            <label>Country of Travel</label>
+            <select class="form-control mb-4">
+              <option></option>
+              <option>Australia</option>
+              <option>Neitherlands</option>
+              <option>India</option>
+              <option>America</option>
+              <option>Denmark</option>
+            </select>
+
+          </div>
+
+           
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <label>Message</label>
+            <textarea placeholder="Enter your message" name="message" class="form-control mb-4"></textarea>
+          
+          </div>
+
+        </div>
+
+        <div>
+                <button type="submit" class="btn text-light p-3" style="background-color: hotpink;border-radius: 30px;">Send Message</button>
+                <a href=""></a>
+                
+        </div>
+
+      </form>
+
+      </div>
+
+      <div class="col-5">
+        <img src="../static/images/home-1.png" width="80%">
+      </div>
+
+    </div>
+    
+  </div>
+  
+</div>
+          
+{% if response == 1 %}
+<script>
+  alert('Mesage Sent')
+</script>
+{% endif %}
+
+{% endblock %}

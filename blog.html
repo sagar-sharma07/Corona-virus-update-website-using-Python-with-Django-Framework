@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="container-fluid p-5" style="background-image: url(../static/images/covid.jpg);background-size: cover; height: 150px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-light text-center fw-bold">Blog</h1>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid p-5">
+	<div class="container">
+		<div class="row mt-5">
+
+{% for x in blog %}
+			<div class="col-3 p-3">
+				<div class="card" style="">
+  <img src="{{x.image.url}}" class="card-img-top" alt="..." height="250px">
+  <div class="card-body">
+    <h5 class="card-title fw-bold">{{x.title}}</h5>
+    <p class="card-text">{{x.description|truncatechars:100}}</p>
+    <a href="{% url 'fullblog' blogid=x.id %} " class="btn btn-primary">Read More</a>
+  </div>
+</div>
+
+
+			</div>
+			
+      {% endfor %}
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+{% endblock %}
+
+
